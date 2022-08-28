@@ -254,4 +254,4 @@ const pizzas = [
         "Individual Flatbread Pizza With Tomato Sauce, Chicken, Bacon & Mozzarella Pearls",
   },
 ];
-export default pizzas;
+module.exports = pizzas;

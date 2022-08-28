@@ -1,6 +1,14 @@
 const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./config/config');
 require('colors');
 const morgan = require('morgan');
+
+//config dotenv
+dotenv.config();
+
+//connection mongodb
+connectDB();
 
 const app = express();
 
@@ -13,6 +21,7 @@ app.get('/',(req,res) => {
     res.send('<h1>Hello from Node Server via Nodemon</h1>');
 });
 
-app.listen(8080, () => {
-    console.log("Server running on port 8080");
+const port = process.env.PORT || 8080
+app.listen(port, () => {
+    console.log(`Server Running On ${process.env.NODE_ENV} mode on port no ${process.env.PORT}` .bgMagenta.white);
 });

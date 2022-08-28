@@ -69,7 +69,7 @@ const Contact = () => {
           <Col md={6}>
             <Image
               src={"images/farmhouse.jpg"}
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "100%" }}
             />
           </Col>
         </Row>

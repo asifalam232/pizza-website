@@ -13,6 +13,7 @@ const Pizza = ({pizza}) => {
         <>
             <Card style={{ width: "18rem", marginTop: "30px" }}>
                 <Card.Img
+                    class="rounded float-left"
                     variant="top"
                     src={pizza.image}
                     // style={{ cursor:"pointer" }}
@@ -74,7 +75,7 @@ const Pizza = ({pizza}) => {
                         />
                     </div>
                     <div>
-                        <h5>Description:</h5>
+                        <h5>Ingredients:</h5>
                         <h6>{pizza.description}</h6>
                     </div>
                 </Modal.Body>
