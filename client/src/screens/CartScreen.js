@@ -1,13 +1,14 @@
 import React, {useState} from "react";
-import {Container, Row, Col} from "react-bootstrap";
+import {Container, Row, Col, Button} from "react-bootstrap";
 import {useSelector, useDispatch} from "react-redux";
-import {FaMinusCircle, FaPlusCircle} from "react-icons/fa";
-import {addToCart} from "../actions/cartAction";
+import {FaMinusCircle, FaPlusCircle, FaTrash} from "react-icons/fa";
+import {addToCart, deleteFromCart} from "../actions/cartAction";
 
 const CartScreen = () => {
     const cartState = useSelector(state => state.cartReducer);
     const cartItems = cartState.cartItems;
     const dispatch = useDispatch();
+    const subTotal = cartItems.reduce((x, item) => x + item.price, 0);
 
     return (
         <>
@@ -53,6 +54,15 @@ const CartScreen = () => {
                                                 alt={item.name}
                                                 src={item.image}
                                                 style={{width:"80px", height:"80px"}}
+                                            /> &nbsp;
+                                            <FaTrash
+                                                className={"text-danger"}
+                                                style={{cursor:"pointer", marginLeft:"20px"}}
+                                                onClick={() => {
+                                                    dispatch(
+                                                        deleteFromCart(item)
+                                                    );
+                                                }}
                                             />
                                         </Col>
                                         <hr/>
@@ -63,6 +73,9 @@ const CartScreen = () => {
                     </Col>
                     <Col md={4}>
                         <h1>Payment</h1>
+                        <h4>Sub Total</h4>
+                        <h4>£ : {subTotal} /-</h4>
+                        <Button>Checkout</Button>
                     </Col>
                 </Row>
             </Container>
