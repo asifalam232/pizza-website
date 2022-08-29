@@ -8,6 +8,8 @@ import Policy from "./components/Policy";
 import NavBar from "./components/NavBar";
 import HomeScreen from "./screens/HomeScreen";
 import CartScreen from "./screens/CartScreen";
+import Register from "./screens/Register";
+import Login from "./screens/Login";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <TopBar />
       <NavBar />
       <Switch>
+          <Route path={"/login"} component={Login} exact />
+          <Route path={"/register"} component={Register} exact />
           <Route path={"/cart"} component={CartScreen} exact />
           <Route path={"/about"} component={About} exact />
           <Route path={"/contact"} component={Contact} exact />
