@@ -3,11 +3,12 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {getAllPizzaReducer} from "./reducers/pizzaReducer";
 import {cartReducer} from "./reducers/cartReducer";
-
+import {registerUserReducer} from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
     getAllPizzaReducer: getAllPizzaReducer,
-    cartReducer: cartReducer
+    cartReducer: cartReducer,
+    registerUserReducer: registerUserReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
