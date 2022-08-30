@@ -13,16 +13,16 @@ const TopBar = () => {
             delivery on Orders Above £30
           </h6>
           <Nav className={"ms-auto"}>
-            <LinkContainer to={"/"} activeClassName>
+            <LinkContainer to={"/"}>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to={"/about"} activeClassName>
+            <LinkContainer to={"/about"}>
               <Nav.Link>About Us</Nav.Link>
             </LinkContainer>
-            <LinkContainer to={"/contact"} activeClassName>
+            <LinkContainer to={"/contact"}>
               <Nav.Link>Contact Us</Nav.Link>
             </LinkContainer>
-            <LinkContainer to={"/policy"} activeClassName>
+            <LinkContainer to={"/policy"}>
               <Nav.Link>terms and policy</Nav.Link>
             </LinkContainer>
           </Nav>
