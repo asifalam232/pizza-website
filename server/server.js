@@ -10,7 +10,7 @@ app.use(morgan("dev"));
 
 //route
 app.get("/", (req, res) => {
-  res.send("<h1>Hello from Node  Server</h1>");
+  res.send("<h1>Hello from Node  Server via nodemon!!!</h1>");
 });
 
 app.listen(8080, () => {
