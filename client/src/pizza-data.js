@@ -8,7 +8,7 @@ const pizzas = [
         small: 9.5,
         medium: 10.5,
         large: 12.0,
-        "extra-large": 13.5,
+        extraLarge: 13.5,
       },
     ],
     category: "veg",
