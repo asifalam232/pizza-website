@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { registerUser } from "../actions/userAction";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -15,8 +16,7 @@ const Register = () => {
       alert("Passwords do not match");
     } else {
       const user = { name, email, password, confirmPassword };
-      // dispatch(registerUser(user));
-      console.log(user);
+      dispatch(registerUser(user));
     }
   };
 
