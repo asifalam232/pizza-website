@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   loginUserReducer: loginUserReducer,
 });
 
-const currentUser = localStorage.getItem("currentItem")
+const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : null;
 
