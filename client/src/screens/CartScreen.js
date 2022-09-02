@@ -1,11 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaMinusCircle, FaPlusCircle, FaTrash } from "react-icons/fa";
+import { addToCart } from "../actions/cartAction";
 
 const CartScreen = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
+  const dispatch = useDispatch();
   return (
     <>
       <Container>
@@ -28,12 +30,22 @@ const CartScreen = () => {
                       <FaMinusCircle
                         className={"text-danger"}
                         style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          dispatch(
+                            addToCart(item, item.quantity - 1, item.variant)
+                          );
+                        }}
                       />{" "}
                       &nbsp;
                       {item.quantity} &nbsp;
                       <FaPlusCircle
                         className={"text-success"}
                         style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          dispatch(
+                            addToCart(item, item.quantity + 1, item.variant)
+                          );
+                        }}
                       />
                     </h6>
                   </Col>
@@ -44,7 +56,7 @@ const CartScreen = () => {
                       style={{ width: "80px", height: "80px" }}
                     />
                   </Col>
-                  <hr/>
+                  <hr />
                 </>
               ))}
             </Row>
