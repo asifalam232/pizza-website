@@ -13,8 +13,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const registerState = useSelector((state) => state.registerUserReducer);
-  const [error, success, loading] = registerState;
+  // const registerState = useSelector((state) => state.registerUserReducer);
+  // const [error, success, loading] = registerState;
 
   const dispatch = useDispatch();
 
@@ -30,9 +30,9 @@ const Register = () => {
   return (
     <>
       <Container>
-        {loading && <Loader />}
-        {success && <Success success="User Registered successfully" />}
-        {error && <Error error="Something went wrong" />}
+        {/*{loading && <Loader />}*/}
+        {/*{success && <Success success="User Registered successfully" />}*/}
+        {/*{error && <Error error="Something went wrong" />}*/}
         <Form>
           <h1>Registration</h1>
           <Form.Group className="mb-3" controlId="formBasicName">
