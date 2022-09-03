@@ -30,6 +30,7 @@ export const getUserOrdersReducer = (state = { orders: [] }, action) => {
         loading: true,
         ...state,
       };
+      break;
 
     case "USER_ORDER_SUCCESS":
       return {
@@ -47,5 +48,6 @@ export const getUserOrdersReducer = (state = { orders: [] }, action) => {
 
     default:
       return state;
+      break;
   }
 };
