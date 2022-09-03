@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { addPizza } from "../../actions/pizzaAction";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Loader";
+import Error from "../Error";
+import Success from "../Success";
 
 const AddNewPizza = () => {
   const [name, setName] = useState("");
@@ -10,6 +15,11 @@ const AddNewPizza = () => {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+
+  const addPizzaState = useSelector((state) => state.addPizzaReducer);
+  const { loading, error, success } = addPizzaState;
+
+  const dispatch = useDispatch();
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -25,10 +35,13 @@ const AddNewPizza = () => {
         ExtraLarge: ExtraLargePrice,
       },
     };
-    console.log(pizza);
+    dispatch(addPizza(pizza));
   };
   return (
-    <>
+    <div>
+      {loading && <Loader />}
+      {error && <Error error="Add new pizza error" />}
+      {success && <Success success="Pizza added successfully" />}
       <Form onSubmit={submitForm} className="bg-light pd-4">
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
@@ -118,7 +131,7 @@ const AddNewPizza = () => {
           Add New
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 

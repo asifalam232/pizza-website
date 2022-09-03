@@ -12,4 +12,22 @@ router.get("/getAllPizzas", async (req, res) => {
   }
 });
 
+router.post("/addpizza", async (req, res) => {
+  const { pizza } = req.body;
+  try {
+    const newPizza = new pizzaModel({
+      name: pizza.name,
+      image: pizza.image,
+      variants: [small, medium, large, ExtraLarge],
+      description: pizza.description,
+      category: pizza.category,
+      prices: [pizza.prices],
+    });
+    await newPizza.save();
+    res.status(201).send("New Pizza added");
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
 module.exports = router;
