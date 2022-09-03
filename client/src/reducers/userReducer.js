@@ -18,7 +18,7 @@ export const registerUserReducer = (state = {}, action) => {
       };
 
     default:
-      return { state };
+      return state;
   }
 };
 
