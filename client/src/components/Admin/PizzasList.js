@@ -6,6 +6,7 @@ import { getAllPizzas } from "../../actions/pizzaAction";
 import Pizza from "../../components/Pizza";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
+import { Link } from "react-router-dom";
 
 const PizzasList = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,10 @@ const PizzasList = () => {
                     </td>
                     <td>{pizza.description}</td>
                     <td>
-                      <AiFillEdit /> &nbsp; <AiFillDelete />
+                      <Link to={`/admin/editpizza/${pizza._id}`}>
+                        <AiFillEdit style={{ cursor: "pointer" }} />
+                      </Link>
+                      &nbsp; <AiFillDelete />
                     </td>
                   </tr>
                 ))}
