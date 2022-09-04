@@ -1,0 +1,5 @@
+stripe publishable key =
+pk_test_51Ldsb5GXJ3uGUHTgwJoteHolw15PBIiHVsJiH1Taf9WElgIvlKWN2Vvw0pcsLIBDtdNDAHwctxnDhls9wN4RdKkZ00V9Zt9A0t
+
+stripe secret key =
+sk_test_51Ldsb5GXJ3uGUHTg3UA3kv8eHkId4szAOznNVDZY6jvCkfIuxvtWa4hqqlO3Czzh5XfoM0ohBgOvzcsHn3UdCtsk00AllkgZMS
