@@ -53,3 +53,22 @@ export const deletePizza = (pizzaId) => async (dispatch) => {
     swal("Error while deleting pizza");
   }
 };
+
+export const filterPizza = (searchkey, category) => async (dispatch) => {
+  let filteredPizza;
+  dispatch({ type: "GET_PIZZAS_REQUEST" });
+  try {
+    const res = await axios.get("/api/pizzas/getAllPizzas");
+    filteredPizza = res.data.filter((pizza) =>
+      pizza.name.toLowerCase().includes(searchkey)
+    );
+    if (category !== "all") {
+      filteredPizza = res.data.filter(
+        (pizza) => pizza.category.toLowerCase() === category
+      );
+    }
+    dispatch({ type: "GET_PIZZAS_SUCCESS", payload: filteredPizza });
+  } catch (error) {
+    dispatch({ type: "GET_PIZZAS_FAIL", payload: error });
+  }
+};
