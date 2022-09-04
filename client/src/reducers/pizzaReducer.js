@@ -66,3 +66,26 @@ export const getPizzaByIdReducer = (state = {}, action) => {
       return state;
   }
 };
+
+//4
+export const updatePizzaByIdReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "UPDATE_PIZZABYID_REQUEST":
+      return {
+        ...state,
+        updateloading: true,
+      };
+    case "UPDATE_PIZZABYID_SUCCESS":
+      return {
+        updatesuccess: true,
+        updateloading: false,
+      };
+    case "UPDATE_PIZZABYID_FAIL":
+      return {
+        updateerror: action.payload,
+        updateloading: false,
+      };
+    default:
+      return state;
+  }
+};
