@@ -8,8 +8,11 @@ import {
   updatePizzaByIdReducer,
 } from "./reducers/pizzaReducer";
 import { cartReducer } from "./reducers/cartReducer";
-import { registerUserReducer } from "./reducers/userReducer";
-import { loginUserReducer } from "./reducers/userReducer";
+import {
+  registerUserReducer,
+  loginUserReducer,
+  getAllUsersReducer,
+} from "./reducers/userReducer";
 import {
   placeOrderReducer,
   getUserOrdersReducer,
@@ -27,6 +30,7 @@ const rootReducer = combineReducers({
   getPizzaByIdReducer: getPizzaByIdReducer,
   updatePizzaByIdReducer: updatePizzaByIdReducer,
   allUserOrdersReducer: allUserOrdersReducer,
+  getAllUsersReducer: getAllUsersReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
