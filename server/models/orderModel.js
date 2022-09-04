@@ -23,8 +23,8 @@ const orderSchema = mongoose.Schema(
       // required: true,
     },
     isDelivered: {
-      type: String,
-      // required: true,
+      type: Boolean,
+      default: false,
     },
     transactionId: {
       type: String,
