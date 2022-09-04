@@ -1,5 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const path = require("path");
+
 const connectDB = require("./config/config");
 require("colors");
 const morgan = require("morgan");
@@ -20,9 +22,17 @@ app.use(morgan("dev"));
 app.use("/api/pizzas", require("./routes/pizzaRoute"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/orders", require("./routes/orderRoute"));
-app.get("/", (req, res) => {
-  res.send("<h1>Hello from Node  Server via nodemon!!!</h1>");
-});
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '/client/build')));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("<h1>Hello from Node  Server</h1>");
+  });
+}
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
